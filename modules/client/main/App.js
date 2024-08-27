@@ -9,11 +9,7 @@ import parseDate from 'date-fns/parse';
 import { formatNumber, formatPercent } from '../utils/format.js';
 import { fontSans, fontMono } from '../utils/style.js';
 
-import { TwitterIcon, GitHubIcon } from './Icons.js';
-import CloudflareLogo from './images/CloudflareLogo.png';
-import FlyLogo from './images/FlyLogo.png';
-
-const buildId = process.env.BUILD_ID;
+import { GitHubIcon } from './Icons.js';
 
 const globalStyles = css`
   html {
@@ -67,15 +63,6 @@ function Link(props) {
       }}
     />
   );
-}
-
-function AboutLogo({ children }) {
-  return <div css={{ textAlign: 'center', flex: '1' }}>{children}</div>;
-}
-
-function AboutLogoImage(props) {
-  // eslint-disable-next-line jsx-a11y/alt-text
-  return <img {...props} css={{ maxWidth: '90%' }} />;
 }
 
 function Stats({ data }) {
@@ -336,60 +323,8 @@ export default function App() {
             Please do not contact npm for help with unpkg. Instead, please reach
             out to <Link href="https://twitter.com/unpkg">@unpkg</Link> with any
             questions or concerns.
+            and modified by <Link href="https://github.com/gcaaa31928">Red Huang</Link>
           </p>
-
-          <p>
-            The unpkg CDN is powered by{' '}
-            <Link href="https://www.cloudflare.com">Cloudflare</Link>, one of
-            the world&apos;s largest and fastest cloud network platforms.{' '}
-            {hasStats && (
-              <span>
-                In the past month, Cloudflare served over{' '}
-                <strong>{formatBytes(stats.totals.bandwidth.all)}</strong> to{' '}
-                <strong>{formatNumber(stats.totals.uniques.all)}</strong> unique
-                unpkg users all over the world.
-              </span>
-            )}
-          </p>
-
-          <div
-            css={{
-              margin: '4em 0',
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <AboutLogo>
-              <a href="https://www.cloudflare.com">
-                <AboutLogoImage
-                  alt="Cloudflare"
-                  src={CloudflareLogo}
-                  height="100"
-                />
-              </a>
-            </AboutLogo>
-          </div>
-
-          <p>
-            The origin server runs on auto-scaling infrastructure provided by{' '}
-            <Link href="https://fly.io/">Fly.io</Link>. The app servers run in
-            17 cities around the world, and come and go based on active
-            requests.
-          </p>
-
-          <div
-            css={{
-              margin: '4em 0 0',
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <AboutLogo>
-              <a href="https://fly.io">
-                <AboutLogoImage alt="Fly.io" src={FlyLogo} width="320" />
-              </a>
-            </AboutLogo>
-          </div>
         </div>
       </div>
 
@@ -412,24 +347,11 @@ export default function App() {
           }}
         >
           <p>
-            <span>Build: {buildId}</span>
-          </p>
-          <p>
             <span>&copy; {new Date().getFullYear()} UNPKG</span>
           </p>
           <p css={{ fontSize: '1.5rem' }}>
             <a
-              href="https://twitter.com/unpkg"
-              css={{
-                color: '#aaa',
-                display: 'inline-block',
-                ':hover': { color: 'white' }
-              }}
-            >
-              <TwitterIcon />
-            </a>
-            <a
-              href="https://github.com/mjackson/unpkg"
+              href="https://github.com/gcaaa31928/unpkg"
               css={{
                 color: '#aaa',
                 display: 'inline-block',
